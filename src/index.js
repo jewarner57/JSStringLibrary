@@ -39,18 +39,78 @@ String.prototype.capitalizeHeadline = function () {
   return upperCasedString
 }
 
-/* C4:  Removes all spaces from the beginning and end of a String along with any extra spaces in the middle.
+/* C4A:  Removes all spaces from the beginning and end of a String along with any extra spaces in the middle.
 If more than one space appears in the middle of a string it is replaced by a single space. */
 String.prototype.removeExtraSpaces = function () {
   let str = this.trim()
-  let spaces = ["", "\n", "\t", "\r"]
 
-  str = str.split(" ")
-  str = str.filter(word => !spaces.includes(word))
+  // I didn't think the whitespace (\s) flag would catch
+  // everything, but it did and that made things much easier.
 
-  // str.replace((/  |\r\n|\n|\r/gm), ""); use regex cuz it gud
+  // \s (whitespace chars) + (atleast one) /gm (global multiline)
+  str = str.split(/ \s+/gm)
 
   return str.join(' ')
+
+}
+// console.log("      \t\t\t\t\t\t\r\r\r\r   I Hate  \r\t \r \t   White    \n\n      Space \n       ".removeExtraSpaces())
+
+
+
+// C5: lowercase string, remove extra spaces, replace spaces with -
+String.prototype.kebobCase = function () {
+  let str = this.toLowerCase().removeExtraSpaces().split(" ").join("-")
+
+  return str
 }
 
-console.log("         I Hate  Grouped    \n \n      Spaces \n       ".removeExtraSpaces())
+// C6: lowercase string, remove extra spaces, replace spaces with _
+String.prototype.snakeCase = function () {
+  let str = this.toLowerCase().removeExtraSpaces().split(" ").join("_")
+
+  return str
+}
+
+// C7: converts the string to camel case
+String.prototype.camelCase = function () {
+  let words = this.removeExtraSpaces().split(' ')
+  let camelString = ""
+
+  words.forEach((word, index) => {
+    camelString += word[0].toUpperCase() + word.slice(1, word.length).toLowerCase()
+  })
+
+  camelString = camelString[0].toLowerCase() + camelString.slice(1, camelString.length)
+
+  return camelString
+}
+
+// C8: shift the first letter of the string to the end of the word
+String.prototype.shift = function () {
+  let str = this
+  return str.slice(1) + str[0]
+}
+
+// C9: choose the 3 longest words and put a hashtag before them
+String.prototype.makeHashTag = function () {
+  let str = this.removeExtraSpaces()
+  str = str.split(" ")
+
+  str = str.sort((a, b) => {
+    if (a.length > b.length) {
+      return -1
+    }
+    else {
+      return 0
+    }
+  })
+
+  return [`#${str[0]}`, `#${str[1]}`, `#${str[2]}`]
+}
+
+// C10: Returns true if the given string is empty or contains only whitespace.
+String.prototype.isEmpty = function () {
+  let str = this
+  // \S (non whitespace chars) + (atleast one) /gm (global multiline)
+  return !new RegExp(/\S+/gm).test(str)
+}
