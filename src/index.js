@@ -48,7 +48,7 @@ String.prototype.removeExtraSpaces = function () {
   // everything, but it did and that made things much easier.
 
   // \s (whitespace chars) + (atleast one) /gm (global multiline)
-  str = str.split(/ \s+/gm)
+  str = str.split(/\s{1}/gm)
 
   return str.join(' ')
 
