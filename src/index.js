@@ -54,11 +54,11 @@ String.prototype.removeExtraSpaces = function () {
 
 }
 // console.log("      \t\t\t\t\t\t\r\r\r\r   I Hate  \r\t \r \t   White    \n\n      Space \n       ".removeExtraSpaces())
-
+// console.log("\n\n\n\nDestroy\t\t\t\r\rAll\n      Whitespace \n \t \r ".removeExtraSpaces())
 
 
 // C5: lowercase string, remove extra spaces, replace spaces with -
-String.prototype.kebobCase = function () {
+String.prototype.kebabCase = function () {
   let str = this.toLowerCase().removeExtraSpaces().split(" ").join("-")
 
   return str
