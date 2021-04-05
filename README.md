@@ -3,7 +3,7 @@ I laugh in the face of complicated string problems. With this library, you can t
 <hr>
 
 ### Installation
-* You can install this string library [here](/) via npm
+* You can install this string library [here](https://www.npmjs.com/package/@jewarner57/easy-as-string) via npm
 
 ### Usage
 * Below you will find each function included in this library and how to use it.
