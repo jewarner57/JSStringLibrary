@@ -1,6 +1,6 @@
 {
   "name": "@jewarner57/easy-as-string",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A String Manipulation Helper Library",
   "main": "src/index.js",
   "Format": "npm",
@@ -14,7 +14,4 @@
   ],
   "author": "Jonathan Warner",
   "license": "ISC",
-  "publishConfig": {
-    "registry": "https://github.com/jewarner57/JSStringLibrary"
-  }
 }
