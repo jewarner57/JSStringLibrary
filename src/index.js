@@ -114,17 +114,3 @@ String.prototype.isEmpty = function () {
   // \S (non whitespace chars) + (atleast one) /gm (global multiline)
   return !new RegExp(/\S+/gm).test(str)
 }
-
-module.exports = {
-  capitalize,
-  upper,
-  capitalizeWords,
-  capitalizeHeadline,
-  removeExtraSpaces,
-  kebabCase,
-  snakeCase,
-  camelCase,
-  shift,
-  makeHashTag,
-  isEmpty,
-}
