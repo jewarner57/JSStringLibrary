@@ -15,6 +15,6 @@
   "author": "Jonathan Warner",
   "license": "ISC",
   "publishConfig": {
-    "registry": "git@github.com:jewarner57/JSStringLibrary.git"
+    "registry": "https://github.com/jewarner57/JSStringLibrary"
   }
 }
