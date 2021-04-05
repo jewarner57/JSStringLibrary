@@ -1,12 +1,17 @@
 {
-  "name": "StringLibrary",
+  "name": "@jewarner57/EasyAsString",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A String Manipulation Helper Library",
+  "main": "src/index.js",
+  "Format": "npm",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "String",
+    "Helper",
+    "Javascript"
+  ],
+  "author": "Jonathan Warner",
   "license": "ISC"
 }
