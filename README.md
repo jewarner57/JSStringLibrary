@@ -1,5 +1,5 @@
 ![npm (scoped)](https://img.shields.io/npm/v/@jewarner57/easy-as-string)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/jewarner57/JSStringLibrary)
+![GitHub last commit](https://img.shields.io/github/last-commit/jewarner57/JSStringLibrary)
 ![GitHub top language](https://img.shields.io/github/languages/top/jewarner57/JSStringLibrary)
 
 ## easy-as-string Library
