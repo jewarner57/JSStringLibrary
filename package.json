@@ -1,9 +1,8 @@
 {
   "name": "@jewarner57/easy-as-string",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A String Manipulation Helper Library",
   "main": "src/index.js",
-  "Format": "npm",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
