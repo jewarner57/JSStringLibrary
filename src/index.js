@@ -1,6 +1,11 @@
 
 // C1: Uppercase the first char in a string
 String.prototype.capitalize = function () {
+
+  if (this.isEmpty()) {
+    return String(this)
+  }
+
   return this[0].toUpperCase() + this.slice(1)
 }
 
@@ -11,18 +16,25 @@ String.prototype.upper = function () {
 
 // C3: Capitalize all words in a string
 String.prototype.capitalizeWords = function () {
+  if (this.isEmpty()) {
+    return String(this)
+  }
+
   let words = this.split(' ')
-  let upperCasedString = ""
 
   words.forEach((word, index) => {
-    upperCasedString += word[0].toUpperCase() + word.slice(1, word.length) + " "
+    words[index] = word[0].toUpperCase() + word.slice(1)
   })
 
-  return upperCasedString
+  return words.join(" ")
 }
 
 // C3A: Capitalize all words in a string except certain words
 String.prototype.capitalizeHeadline = function () {
+  if (this.isEmpty()) {
+    return String(this)
+  }
+
   let words = this.split(' ')
   let doNotCapitalize = ["the", "in", "a", "an", "and", "but", "for", "at", "by", "from"]
   let upperCasedString = ""
@@ -36,7 +48,7 @@ String.prototype.capitalizeHeadline = function () {
     }
   })
 
-  return upperCasedString
+  return upperCasedString.trim()
 }
 
 /* C4A:  Removes all spaces from the beginning and end of a String along with any extra spaces in the middle.
