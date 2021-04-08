@@ -79,7 +79,7 @@ I laugh in the face of complicated string problems. With this library, you can t
 ```
 
 ### String.prototype.makeHashTag()
-* Returns the 3 longest words preceded by a hashtag.
+* Returns an array of the 3 longest words preceded by a hashtag.
 
 ``` javascript
 "there was a potato and a beachball and a forest ".makeHashTag() -> ["#potato", "#beachball", "#forest"]

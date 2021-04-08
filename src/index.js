@@ -1,7 +1,6 @@
 
 // C1: Uppercase the first char in a string
 String.prototype.capitalize = function () {
-
   if (this.isEmpty()) {
     return String(this)
   }
@@ -16,14 +15,10 @@ String.prototype.upper = function () {
 
 // C3: Capitalize all words in a string
 String.prototype.capitalizeWords = function () {
-  if (this.isEmpty()) {
-    return String(this)
-  }
-
   let words = this.split(' ')
 
   words.forEach((word, index) => {
-    words[index] = word[0].toUpperCase() + word.slice(1)
+    words[index] = word.capitalize()
   })
 
   return words.join(" ")
@@ -31,24 +26,16 @@ String.prototype.capitalizeWords = function () {
 
 // C3A: Capitalize all words in a string except certain words
 String.prototype.capitalizeHeadline = function () {
-  if (this.isEmpty()) {
-    return String(this)
-  }
-
   let words = this.split(' ')
   let doNotCapitalize = ["the", "in", "a", "an", "and", "but", "for", "at", "by", "from"]
-  let upperCasedString = ""
 
   words.forEach((word, index) => {
     if (!doNotCapitalize.includes(word) || index == 0) {
-      upperCasedString += word[0].toUpperCase() + word.slice(1, word.length) + " "
-    }
-    else {
-      upperCasedString += word + " "
+      words[index] = word.capitalize()
     }
   })
 
-  return upperCasedString.trim()
+  return words.join(" ")
 }
 
 /* C4A:  Removes all spaces from the beginning and end of a String along with any extra spaces in the middle.
@@ -63,10 +50,7 @@ String.prototype.removeExtraSpaces = function () {
   str = str.split(/\s+/gm)
 
   return str.join(' ')
-
 }
-// console.log("      \t\t\t\t\t\t\r\r\r\r   I Hate  \r\t \r \t   White    \n\n      Space \n       ".removeExtraSpaces())
-// console.log("\n\n\n\nDestroy\t\t\t\r\rAll\n      Whitespace \n \t \r ".removeExtraSpaces())
 
 
 // C5: lowercase string, remove extra spaces, replace spaces with -
@@ -86,19 +70,25 @@ String.prototype.snakeCase = function () {
 // C7: converts the string to camel case
 String.prototype.camelCase = function () {
   let words = this.removeExtraSpaces().split(' ')
-  let camelString = ""
 
   words.forEach((word, index) => {
-    camelString += word[0].toUpperCase() + word.slice(1, word.length).toLowerCase()
+    if (index === 0) {
+      words[index] = word.toLowerCase()
+    }
+    else {
+      words[index] = word.toLowerCase().capitalize()
+    }
   })
 
-  camelString = camelString[0].toLowerCase() + camelString.slice(1, camelString.length)
-
-  return camelString
+  return words.join("")
 }
 
 // C8: shift the first letter of the string to the end of the word
 String.prototype.shift = function () {
+  if (this.isEmpty()) {
+    return String(this)
+  }
+
   let str = this
   return str.slice(1) + str[0]
 }
