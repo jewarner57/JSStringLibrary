@@ -46,7 +46,7 @@ String.prototype.removeExtraSpaces = function () {
   // I didn't think the whitespace (\s) flag would catch
   // everything, but it did and that made things much easier.
 
-  // \s (whitespace chars) + (atleast one) /gm (global multiline)
+  // \s (whitespace chars), + (atleast one), /gm (global multiline)
   str = str.split(/\s+/gm)
 
   return str.join(' ')
@@ -95,8 +95,14 @@ String.prototype.shift = function () {
 
 // C9: choose the 3 longest words and put a hashtag before them
 String.prototype.makeHashTag = function () {
+  if (this.isEmpty()) {
+    return String(this)
+  }
+
   let str = this.removeExtraSpaces()
   str = str.split(" ")
+  let resultLength = str.length < 3 ? str.length : 3;
+  let resultArr = []
 
   str = str.sort((a, b) => {
     if (a.length > b.length) {
@@ -107,12 +113,16 @@ String.prototype.makeHashTag = function () {
     }
   })
 
-  return [`#${str[0]}`, `#${str[1]}`, `#${str[2]}`]
+  for (let i = 0; i < resultLength; i++) {
+    resultArr.push(`#${str[i]}`)
+  }
+
+  return resultArr
 }
 
 // C10: Returns true if the given string is empty or contains only whitespace.
 String.prototype.isEmpty = function () {
   let str = this
-  // \S (non whitespace chars) + (atleast one) /gm (global multiline)
+  // \S (non whitespace chars), + (atleast one), /gm (global multiline)
   return !new RegExp(/\S+/gm).test(str)
 }

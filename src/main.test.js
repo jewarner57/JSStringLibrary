@@ -60,7 +60,12 @@ test('Shift', () => {
 })
 
 test('Make Hashtag', () => {
-  // expect("".makeHashTag()).toBe([""])
+  expect("".makeHashTag()).toBe("")
+  expect("\n\n \t\t".makeHashTag()).toBe("\n\n \t\t")
+  expect("hash".makeHashTag()[0]).toBe("#hash")
+  expect("hash tag".makeHashTag()[0]).toBe("#hash")
+  expect("hash tag".makeHashTag()[1]).toBe("#tag")
+  expect("picnic basket extravaganza party for 7".makeHashTag()).toEqual(["#extravaganza", "#picnic", "#basket"])
 })
 
 test('Is Empty?', () => {
