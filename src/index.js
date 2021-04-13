@@ -1,3 +1,4 @@
+const ignoredWords = new Set(["the", "in", "a", "an", "and", "but", "for", "at", "by", "from"])
 
 // C1: Uppercase the first char in a string
 String.prototype.capitalize = function () {
@@ -27,10 +28,9 @@ String.prototype.capitalizeWords = function () {
 // C3A: Capitalize all words in a string except certain words
 String.prototype.capitalizeHeadline = function () {
   let words = this.split(' ')
-  let doNotCapitalize = ["the", "in", "a", "an", "and", "but", "for", "at", "by", "from"]
 
   words.forEach((word, index) => {
-    if (!doNotCapitalize.includes(word) || index == 0) {
+    if (!ignoredWords.has(word) || index === 0) {
       words[index] = word.capitalize()
     }
   })
@@ -111,11 +111,9 @@ String.prototype.makeHashTag = function () {
     else {
       return 0
     }
-  })
+  }).slice(0, resultLength)
 
-  for (let i = 0; i < resultLength; i++) {
-    resultArr.push(`#${str[i]}`)
-  }
+  str.map((word) => resultArr.push(`#${word}`))
 
   return resultArr
 }
